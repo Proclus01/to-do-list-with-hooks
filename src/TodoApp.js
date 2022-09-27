@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TodoList from "./TodoList";
+import TodoForm from './TodoForm';
 import { Typography } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
 import { AppBar } from "@material-ui/core";
@@ -30,6 +31,7 @@ function TodoApp() {
           <Typography color="inherit">TO DOS WITH HOOKS</Typography>
         </Toolbar>
       </AppBar>
+      <TodoForm />
       <TodoList todos={todos} />
     </Paper>
   );

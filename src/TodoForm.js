@@ -1,16 +1,23 @@
-import useInputState from './hooks/useInputState';
+import useInputState from "./hooks/useInputState";
 import { Paper } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
 
-function TodoForm(props) {
-    const [value, handleChange, reset] = useInputState("");
+function TodoForm({ addTodo }) {
+  const [value, handleChange, reset] = useInputState("");
 
-    return (
-      <Paper>
-        <TextField value={value} onChange={handleChange}/>
-      </Paper>
-    );
-  }
-  
-  export default TodoForm;
-  
+  return (
+    <Paper>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          addTodo(value);
+          reset();
+        }}
+      >
+        <TextField value={value} onChange={handleChange} />
+      </form>
+    </Paper>
+  );
+}
+
+export default TodoForm;

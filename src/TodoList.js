@@ -2,7 +2,7 @@ import React from "react";
 import { Paper } from "@material-ui/core";
 import { List } from "@material-ui/core";
 import { Divider } from "@material-ui/core";
-import Todo from "./Todo"
+import Todo from "./Todo";
 
 function TodoList(props) {
   return (
@@ -10,7 +10,14 @@ function TodoList(props) {
       <List>
         {props.todos.map((todo) => (
           <>
-            <Todo task={todo.task} key={todo.id} completed={todo.completed}/>
+            <Todo
+                id={todo.id}
+                task={todo.task}
+                key={todo.id}
+                completed={todo.completed}
+                deleteTodo={todo.deleteTodo}
+                removeTodo={props.removeTodo}
+            />
             <Divider />
           </>
         ))}

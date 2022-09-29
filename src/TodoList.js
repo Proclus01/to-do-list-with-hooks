@@ -10,11 +10,10 @@ function TodoList(props) {
       <Paper>
         <List>
           {props.todos.map((todo, i) => (
-            <>
+            <div key={todo.id}>
               <Todo
                 id={todo.id}
                 task={todo.task}
-                key={todo.id}
                 completed={todo.completed}
                 deleteTodo={todo.deleteTodo}
                 removeTodo={props.removeTodo}
@@ -22,7 +21,7 @@ function TodoList(props) {
                 editTodo={props.editTodo}
               />
               {i < props.todos.length - 1 && <Divider />}
-            </>
+            </div>
           ))}
         </List>
       </Paper>

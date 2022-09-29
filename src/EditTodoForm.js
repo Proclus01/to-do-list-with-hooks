@@ -2,7 +2,7 @@ import React from "react";
 import useInputState from "./hooks/useInputState";
 import { TextField } from "@material-ui/core";
 
-function EditTodoForm({ id, editTodo, task }) {
+function EditTodoForm({ id, editTodo, task, toggleEdit }) {
   const [value, handleChange, reset] = useInputState(task);
 
   return (
@@ -10,6 +10,7 @@ function EditTodoForm({ id, editTodo, task }) {
         e.preventDefault();
         editTodo(id, value);
         reset();
+        toggleEdit();
     }}>
         <TextField
         margin="normal"

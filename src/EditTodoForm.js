@@ -2,16 +2,22 @@ import React from "react";
 import useInputState from "./hooks/useInputState";
 import { TextField } from "@material-ui/core";
 
-function EditTodoForm() {
-  const [value, handleChange, reset] = useInputState("");
+function EditTodoForm({ id, editTodo, task }) {
+  const [value, handleChange, reset] = useInputState(task);
 
   return (
-    <TextField
-      margin="normal"
-      valie={value}
-      onChange={handleChange}
-      fullwidth
-    />
+    <form onSubmit={(e) => {
+        e.preventDefault();
+        editTodo(id, value);
+        reset();
+    }}>
+        <TextField
+        margin="normal"
+        valie={value}
+        onChange={handleChange}
+        fullwidth="true"
+        />
+    </form>
   );
 }
 

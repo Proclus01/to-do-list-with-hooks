@@ -9,12 +9,12 @@ import { IconButton } from '@mui/material';
 import { Edit}  from '@mui/icons-material';
 import { ListItemSecondaryAction } from "@material-ui/core";
 
-function Todo({task, completed, removeTodo, id, toggleTodo}) {
+function Todo({task, completed, removeTodo, id, toggleTodo, editTodo}) {
     const [isEditing, toggle] = useToggleState(false);
 
     return (
         <ListItem>
-        {isEditing ? ( <EditTodoForm /> 
+        {isEditing ? ( <EditTodoForm editTodo={editTodo} id={id} task={task} /> 
         ) : (
             <>
             <Checkbox tabIndex={-1} checked={completed} onClick={() => toggleTodo(id)}/>
